@@ -39,13 +39,19 @@ export const Navbar = () => {
 							</Link>
 						</li>
 						<li>
-							<a href="/">Softwares</a>
+							<Link href="/software">
+								<a>Softwares</a>
+							</Link>
 						</li>
 						<li>
-							<a href="/">Blog</a>
+							<Link href="/blog">
+								<a>Blog</a>
+							</Link>
 						</li>
 						<li>
-							<a href="/">Contact</a>
+							<Link href="/contact">
+								<a href="/">Contact</a>
+							</Link>
 						</li>
 						<li>
 							<Link href="/about">

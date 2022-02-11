@@ -11,7 +11,7 @@
 }
 
 .navbar #nav-actions {
-	@apply space-x-2 lg:!opacity-100;
+	@apply space-x-2 transition-all delay-100 lg:!opacity-100;
 }
 
 .navbar #nav-actions button {
@@ -19,7 +19,7 @@
 }
 
 .navbar #navbar-ul {
-	@apply flex flex-col space-y-2 opacity-0 items-center mt-5 mb-2 lg:!opacity-100 lg:flex-row lg:space-x-5 lg:space-y-0;
+	@apply flex flex-col space-y-2 opacity-0 transition-all delay-100 items-center mt-5 mb-2 lg:!opacity-100 lg:flex-row lg:space-x-5 lg:space-y-0;
 }
 
 .navbar #navbar-ul li {

@@ -34,7 +34,9 @@ export const Navbar = () => {
 						}}
 					>
 						<li>
-							<a href="/">Home</a>
+							<Link href="/">
+								<a>Home</a>
+							</Link>
 						</li>
 						<li>
 							<a href="/">Softwares</a>
@@ -68,14 +70,29 @@ export const Navbar = () => {
 
 export const Footer = () => {
 	return (
-		<footer
-			id="footer"
-			className="flex bg-gray-50 shadow-lg drop-shadow-lg items-center p-6 mt-[10em]"
-		>
-			<p id="footer-title" className="text-2xl border-r pr-5 mr-5">
-				DarkLordDev
-			</p>
-			<p className="text-gray-500">Copyright © 2022 DarkLordDev.com</p>
-		</footer>
+		<>
+			<Head>
+				<link
+					rel="stylesheet"
+					href="https://site-assets.fontawesome.com/releases/v6.0.0/css/all.css"
+				/>
+			</Head>
+			<footer
+				id="footer"
+				className="flex items-center p-6 mt-5 mb-[10em] justify-between"
+			>
+				<div className="flex items-center">
+					<p id="footer-title" className="text-2xl border-r pr-5 mr-5">
+						DarkLordDev
+					</p>
+					<p className="text-gray-500">Copyright © 2022 DarkLordDev.com</p>
+				</div>
+				<span className="float-right text-2xl">
+					<a href="https://github.com/DarkLordDev" target="_blank">
+						<i className="fa-brands fa-github" />
+					</a>
+				</span>
+			</footer>
+		</>
 	);
 };

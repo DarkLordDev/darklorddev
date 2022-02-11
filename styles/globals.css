@@ -1,3 +1,98 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.headbar {
+	@apply sticky z-[100] top-0;
+}
+
+.navbar {
+	@apply flex flex-col bg-white justify-between h-52 p-6 border-b w-full items-center lg:!h-auto lg:flex-row transition-all;
+}
+
+.navbar #nav-actions {
+	@apply space-x-2 lg:!opacity-100;
+}
+
+.navbar #nav-actions button {
+	@apply bg-blue-500 py-2 px-4 rounded-md transition-all text-white font-bold hover:bg-blue-700 hover:text-gray-200 focus:ring focus:bg-blue-700 focus:text-gray-200;
+}
+
+.navbar #navbar-ul {
+	@apply flex flex-col space-y-2 opacity-0 items-center mt-5 mb-2 lg:!opacity-100 lg:flex-row lg:space-x-5 lg:space-y-0;
+}
+
+.navbar #navbar-ul li {
+	@apply text-black transition-all hover:text-gray-500;
+}
+
+.navbar #navbar-title-container {
+	@apply flex justify-between items-center w-full font-bold text-4xl lg:w-auto;
+}
+
+.navbar #navbar-title-container #navbar-title-container-title {
+	@apply text-blue-500 lg:text-2xl;
+}
+
+.navbar #navbar-title-container #navbar-title-container-btn {
+	@apply inline text-blue-500 p-2 rounded-full transition-all float-right lg:hidden;
+}
+
+#jumbotron-desc-container-actions {
+	@apply my-5 space-x-3;
+}
+
+#jumbotron-desc-container-actions a {
+	@apply cursor-pointer;
+}
+
+.btn {
+	@apply px-4 py-2 rounded-full shadow-md drop-shadow-md transition-all;
+}
+
+.btn-primary {
+	@apply bg-blue-400 text-white hover:bg-blue-700 focus:ring;
+}
+
+.btn-success {
+	@apply bg-green-400 text-white hover:bg-green-700;
+}
+
+.btn-secondary {
+	@apply bg-gray-400 text-white hover:bg-gray-700;
+}
+
+.card {
+	@apply flex flex-col p-5 justify-center w-full sm:w-1/2 lg:w-1/3;
+}
+
+.card .main-card {
+	@apply rounded-lg shadow-lg drop-shadow-md;
+}
+
+.card-img img {
+	@apply rounded-lg w-full;
+}
+
+.card .main-card .card-title,
+.card .main-card .card-body,
+.card .main-card .card-actions {
+	@apply m-5;
+}
+
+.card-title {
+	@apply text-center;
+}
+
+#popular-softwares {
+	@apply flex flex-wrap;
+}
+
+/*
+.card-body {
+	@apply;
+}
+
+.card-actions {
+	@apply;
+} */

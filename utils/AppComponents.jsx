@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import React, { useState } from "react";
 
 export const Navbar = () => {
@@ -12,84 +13,69 @@ export const Navbar = () => {
 					rel="stylesheet"
 				/>
 			</Head>
-			<header>
-				<nav
-					style={{ height: isRes ? "7rem" : "20rem" }}
-					className={`flex flex-col bg-white sticky z-20 top-0 justify-between h-50 p-6 border-b w-full items-center lg:!h-auto lg:flex-row transition-all`}
-				>
-					<div
-						id="nav-title-container"
-						className="flex justify-between items-center w-full font-bold text-4xl lg:w-auto"
-					>
-						<a className="text-blue-500 lg:text-2xl" href="/">
-							DarkLordDev
-						</a>
+			<header className="headbar">
+				<nav style={{ height: !isRes ? "7rem" : "20rem" }} className="navbar">
+					<div id="navbar-title-container">
+						<Link href="/">
+							<a id="navbar-title-container-title">DarkLordDev</a>
+						</Link>
 						<button
 							onClick={() => setRes(!isRes)}
-							className="inline text-blue-500 p-2 rounded-full transition-all float-right lg:hidden"
+							id="navbar-title-container-btn"
+							style={{ transform: `rotate(${!isRes ? "0" : "180"}deg)` }}
 						>
 							<i className="fa-duotone fa-circle-caret-down" />
 						</button>
 					</div>
 					<ul
-						className={`flex flex-col space-y-2 opacity-0 items-center mt-5 mb-2 lg:!opacity-100 lg:flex-row lg:space-x-5 lg:space-y-0`}
+						id="navbar-ul"
 						style={{
-							opacity: isRes ? "0" : "100",
+							opacity: !isRes ? "0" : "100",
 						}}
 					>
-						<li
-							id="nav-items"
-							className="text-black transition-all hover:text-gray-500"
-						>
+						<li>
 							<a href="/">Home</a>
 						</li>
-						<li
-							id="nav-items"
-							className="text-black transition-all hover:text-gray-500"
-						>
+						<li>
 							<a href="/">Softwares</a>
 						</li>
-						<li
-							id="nav-items"
-							className="text-black transition-all hover:text-gray-500"
-						>
+						<li>
 							<a href="/">Blog</a>
 						</li>
-						<li
-							id="nav-items"
-							className="text-black transition-all hover:text-gray-500"
-						>
+						<li>
 							<a href="/">Contact</a>
 						</li>
-						<li
-							id="nav-items"
-							className="text-black transition-all hover:text-gray-500"
-						>
-							<a href="/">About</a>
+						<li>
+							<Link href="/about">
+								<a>About</a>
+							</Link>
 						</li>
 					</ul>
 					<div
 						id="nav-actions"
-						className="space-x-2 lg:!opacity-100"
 						style={{
-							opacity: isRes ? "0" : "100",
+							opacity: !isRes ? "0" : "100",
 						}}
 					>
-						<button
-							id="nav-signin-btn"
-							className="bg-blue-500 py-2 px-4 rounded-md transition-all text-white font-bold hover:bg-blue-700 hover:text-gray-200 focus:ring focus:bg-blue-700 focus:text-gray-200"
-						>
-							Sign In
-						</button>
-						<button
-							id="nav-signup-btn"
-							className="bg-blue-500 py-2 px-4 rounded-md transition-all text-white font-bold hover:bg-blue-700 hover:text-gray-200 focus:ring focus:bg-blue-700 focus:text-gray-200"
-						>
-							Sign Up
-						</button>
+						<button>Sign In</button>
+						<button>Sign Up</button>
 					</div>
 				</nav>
 			</header>
 		</>
+	);
+};
+
+export const Footer = () => {
+	return (
+		<footer
+			id="footer"
+			className="flex bg-gray-50 shadow-lg drop-shadow-lg items-center p-6 mt-[10em]"
+		>
+			<p id="footer-title" className="text-2xl border-r pr-5 mr-5">
+				DarkLordDev
+			</p>
+			<p className="text-gray-500">Copyright © 2022 DarkLordDev.com</p>
+		</footer>
 	);
 };

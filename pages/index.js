@@ -5,8 +5,8 @@ import { Card } from "../utils/Components";
 const Home = () => {
 	const router = useRouter();
 
-	const demoCheck = (demoparam) => {
-		console.log(demoparam);
+	const demoCheck = (params) => {
+		console.log(params);
 	};
 
 	return (
@@ -33,12 +33,22 @@ const Home = () => {
 								Hi, I am DarkLordDev. I know that you might be wondering why
 								name is so ridiculous? Well, I use because its very cool. This
 								website was made so that people know more about me. Check my
-								blogs, softwares i use, or you can just know more about me by
-								pressing the buttons below.
+								blogs, softwares I use or I have ever created in my life, or you
+								can just know more about me by pressing the buttons below.
 							</p>
 							<div id="jumbotron-desc-container-actions">
-								<button className="btn btn-primary">Blog</button>
-								<button className="btn btn-success">Softwares</button>
+								<button
+									onClick={() => router.push("/blog")}
+									className="btn btn-primary"
+								>
+									Blog
+								</button>
+								<button
+									onClick={() => router.push("/software")}
+									className="btn btn-success"
+								>
+									Softwares
+								</button>
 								<button
 									onClick={() => router.push("/about")}
 									className="btn btn-secondary"
@@ -52,7 +62,7 @@ const Home = () => {
 						id="jumbotron-img-container"
 						className="hidden xl:block lg:w-1/2 lg:h[20rem]"
 						style={{
-							clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0% 100%);",
+							clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0% 100%)",
 						}}
 					>
 						<img src="/img/global_static/jumbotron_bg.jpg" alt="Sorry bro" />

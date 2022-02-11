@@ -2,16 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+	@apply w-auto;
+}
+
 .headbar {
-	@apply sticky z-[100] top-0;
+	@apply sticky w-auto z-[100] top-0;
 }
 
 .navbar {
-	@apply flex flex-col bg-white justify-between h-52 p-6 border-b w-full items-center lg:!h-auto lg:flex-row transition-all;
+	@apply flex flex-col bg-white justify-between h-52 p-6 overflow-hidden border-b w-full items-center lg:!h-auto lg:flex-row transition-all delay-300;
 }
 
 .navbar #nav-actions {
-	@apply space-x-2 transition-all delay-100 lg:!opacity-100;
+	@apply space-x-2 transition-all lg:!block;
 }
 
 .navbar #nav-actions button {
@@ -19,7 +23,7 @@
 }
 
 .navbar #navbar-ul {
-	@apply flex flex-col space-y-2 opacity-0 transition-all delay-100 items-center mt-5 mb-2 lg:!opacity-100 lg:flex-row lg:space-x-5 lg:space-y-0;
+	@apply flex flex-col space-y-2 transition-all items-center mt-5 mb-2 lg:!flex lg:flex-row lg:space-x-5 lg:space-y-0;
 }
 
 .navbar #navbar-ul li {
@@ -27,11 +31,11 @@
 }
 
 .navbar #navbar-title-container {
-	@apply flex justify-between items-center w-full font-bold text-4xl lg:w-auto;
+	@apply flex justify-between items-center w-full font-bold text-2xl lg:w-auto;
 }
 
 .navbar #navbar-title-container #navbar-title-container-title {
-	@apply text-blue-500 lg:text-2xl;
+	@apply text-blue-500;
 }
 
 .navbar #navbar-title-container #navbar-title-container-btn {

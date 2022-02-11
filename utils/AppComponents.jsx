@@ -14,8 +14,15 @@ export const Navbar = () => {
 				/>
 			</Head>
 			<header className="headbar">
-				<nav style={{ height: !isRes ? "7rem" : "20rem" }} className="navbar">
+				<nav style={{ height: !isRes ? "5rem" : "20rem" }} className="navbar">
 					<div id="navbar-title-container">
+						<Link href="/">
+							<img
+								src="/img/global_static/avatar.jpg"
+								className="hidden lg:inline w-[3rem] rounded-full mx-2 cursor-pointer"
+								alt=""
+							/>
+						</Link>
 						<Link href="/">
 							<a id="navbar-title-container-title">DarkLordDev</a>
 						</Link>
@@ -27,12 +34,7 @@ export const Navbar = () => {
 							<i className="fa-duotone fa-circle-caret-down" />
 						</button>
 					</div>
-					<ul
-						id="navbar-ul"
-						style={{
-							opacity: !isRes ? "0" : "100",
-						}}
-					>
+					<ul id="navbar-ul">
 						<li>
 							<Link href="/">
 								<a>Home</a>
@@ -59,12 +61,7 @@ export const Navbar = () => {
 							</Link>
 						</li>
 					</ul>
-					<div
-						id="nav-actions"
-						style={{
-							opacity: !isRes ? "0" : "100",
-						}}
-					>
+					<div id="nav-actions">
 						<button>Sign In</button>
 						<button>Sign Up</button>
 					</div>

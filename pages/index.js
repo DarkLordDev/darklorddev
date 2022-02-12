@@ -21,7 +21,7 @@ const Home = () => {
 						className="flex flex-col justify-center text-center sm:w-[50vw] xl:w-[28vw]"
 					>
 						<div id="jumbotron-header-container">
-							<h1 className="text-xl sm1:text-3xl text-blue-500">
+							<h1 className="text-xl sm1:text-3xl text-red-500">
 								Welcome To DarkLordDev
 							</h1>
 						</div>
@@ -39,7 +39,7 @@ const Home = () => {
 							<div id="jumbotron-desc-container-actions">
 								<button
 									onClick={() => router.push("/blog")}
-									className="btn btn-primary"
+									className="btn btn-danger"
 								>
 									Blog
 								</button>
@@ -51,7 +51,7 @@ const Home = () => {
 								</button>
 								<button
 									onClick={() => router.push("/about")}
-									className="btn btn-secondary"
+									className="btn btn-primary"
 								>
 									About
 								</button>
@@ -79,6 +79,7 @@ const Home = () => {
 						btnStuff={{
 							btnVal: "Read More",
 							btnOnClick: () => demoCheck(1),
+							type: "danger",
 						}}
 					/>
 					<Card
@@ -88,6 +89,7 @@ const Home = () => {
 						btnStuff={{
 							btnVal: "Read More",
 							btnOnClick: () => demoCheck(1),
+							type: "danger",
 						}}
 					/>
 					<Card
@@ -97,6 +99,7 @@ const Home = () => {
 						btnStuff={{
 							btnVal: "Read More",
 							btnOnClick: () => demoCheck(1),
+							type: "danger",
 						}}
 					/>
 				</div>

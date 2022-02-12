@@ -4,7 +4,7 @@ export const Card = ({
 	imgSrc,
 	title,
 	content,
-	btnStuff: { btnVal, btnOnClick },
+	btnStuff: { btnVal, btnOnClick, type },
 }) => {
 	return (
 		<div className="card">
@@ -19,25 +19,11 @@ export const Card = ({
 					<p>{content}</p>
 				</div>
 				<div className="card-actions">
-					<button onClick={btnOnClick} className="btn btn-primary">
+					<button onClick={btnOnClick} className={`btn btn-${type}`}>
 						{btnVal}
 					</button>
 				</div>
 			</div>
 		</div>
-		// <div className="card">
-		// 	<div className="main-card">
-		// 		<div className="card-img">
-		// 			<img src="https://dummyimage.com/600x400/000/fff" alt="" />
-		// 		</div>
-		// 		<div className="card-title">
-		// 			<strong>This is Title</strong>
-		// 		</div>
-		// 		<div className="card-content">this is a demo desc</div>
-		// 		<div className="card-actions">
-		// 			<button className="btn btn-primary">Read More</button>
-		// 		</div>
-		// 	</div>
-		// </div>
 	);
 };

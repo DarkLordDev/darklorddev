@@ -80,17 +80,18 @@ export const Footer = () => {
 					href="https://site-assets.fontawesome.com/releases/v6.0.0/css/all.css"
 				/>
 			</Head>
-			<footer
-				id="footer"
-				className="flex items-center p-6 mt-5 mb-[10em] justify-between"
-			>
-				<div className="flex items-center">
-					<p id="footer-title" className="text-2xl border-r pr-5 mr-5">
-						DarkLordDev
-					</p>
-					<p className="text-gray-500">Copyright © 2022 DarkLordDev.com</p>
+			<footer>
+				<div id="footer-left-container">
+					<span id="first">
+						<img
+							src="/img/global_static/avatar.jpg"
+							alt="Sorry couldn't see the image due to error"
+						/>
+						<p>DarkLordDev</p>
+					</span>
+					<p id="footer-additionaltext">Copyright © 2022 DarkLordDev.com</p>
 				</div>
-				<span className="float-right text-2xl">
+				<span id="footer-right-container">
 					<a href="https://github.com/DarkLordDev" target="_blank">
 						<i className="fa-brands fa-github" />
 					</a>

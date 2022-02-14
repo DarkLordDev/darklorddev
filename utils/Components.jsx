@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 export const Card = ({
@@ -23,6 +24,24 @@ export const Card = ({
 						{btnVal}
 					</button>
 				</div>
+			</div>
+		</div>
+	);
+};
+
+export const BlogItems = ({ post }) => {
+	const router = useRouter();
+
+	return (
+		<div
+			className="card-item"
+			onClick={() => router.push(`/blog/${post.slug}`)}
+		>
+			<div className="card-item-date">{post.frontmatter.data}</div>
+			<div className="card-item-title">{post.frontmatter.title}</div>
+			<div className="card-item-desc">{post.frontmatter.short_desc}</div>
+			<div className="card-item-actions">
+				<a href={`/blog/${post.slug}`}>Read More</a>
 			</div>
 		</div>
 	);

@@ -1,24 +1,17 @@
 import Head from "next/head";
 import Router from "next/router";
 import nProgress from "nprogress";
-import { useState } from "react";
-import "../styles/globals.css";
+import "../styles/main.css";
+import "../styles/progress.css";
+import "../styles/markdown.css";
 import { Footer, Navbar } from "../utils/AppComponents";
 
 function MyApp({ Component, pageProps }) {
-	const [isLoading, setLoading] = useState(false);
 	nProgress.configure({
 		showSpinner: false,
 	});
-	Router.events.on("routeChangeStart", (url) => {
-		nProgress.start();
-		setLoading(true);
-	});
-
-	Router.events.on("routeChangeComplete", (url) => {
-		nProgress.done();
-		setLoading(false);
-	});
+	Router.events.on("routeChangeStart", (url) => nProgress.start());
+	Router.events.on("routeChangeComplete", (url) => nProgress.done());
 
 	return (
 		<>

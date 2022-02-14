@@ -112,96 +112,50 @@ footer #footer-left-container #footer-additionaltext {
 	@apply m-5;
 }
 
-#popular-softwares {
-	@apply flex flex-wrap;
+.card-item {
+	@apply shadow-md bg-gray-50 w-[55vw] flex flex-col even:ml-auto even:items-end p-5 m-5 cursor-pointer;
 }
 
-.card-title {
-	@apply text-center;
+.card-item .card-item-date {
+	@apply font-extralight;
 }
 
-#nprogress {
-	pointer-events: none;
+.card-item .card-item-title {
+	@apply text-3xl my-2 font-bold;
 }
 
-#nprogress .bar {
-	background: #ee4443;
-	position: fixed;
-	z-index: 1031;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 2px;
+.card-item .card-item-desc {
+	@apply text-gray-500 my-3;
 }
 
-#nprogress .peg {
-	display: block;
-	position: absolute;
-	right: 0;
-	width: 100px;
-	height: 100%;
-	box-shadow: 0 0 10px #29d, 0 0 5px #29d;
-	opacity: 1;
-	-webkit-transform: rotate(3deg) translate(0, -4px);
-	-ms-transform: rotate(3deg) translate(0, -4px);
-	transform: rotate(3deg) translate(0, -4px);
+.card-item .card-item-actions {
+	@apply mt-5;
 }
 
-#nprogress .spinner {
-	display: block;
-	position: fixed;
-	z-index: 1031;
-	top: 15px;
-	right: 15px;
+.card-item .card-item-actions a {
+	@apply text-red-500 cursor-pointer;
 }
 
-#nprogress .spinner-icon {
-	width: 18px;
-	height: 18px;
-	box-sizing: border-box;
-	border: 2px solid transparent;
-	border-top-color: #29d;
-	border-left-color: #29d;
-	border-radius: 50%;
-	-webkit-animation: nprogress-spinner 400ms linear infinite;
-	animation: nprogress-spinner 400ms linear infinite;
+.card-container {
+	@apply flex flex-col items-start;
 }
 
-.nprogress-custom-parent {
-	overflow: hidden;
-	position: relative;
+.blogs-container {
+	@apply container mx-auto;
 }
 
-.nprogress-custom-parent #nprogress .bar,
-.nprogress-custom-parent #nprogress .spinner {
-	position: absolute;
+.blog {
+	@apply flex justify-center flex-col items-center container mx-auto shadow-md p-10;
 }
 
-@-webkit-keyframes nprogress-spinner {
-	0% {
-		-webkit-transform: rotate(0deg);
-	}
-
-	100% {
-		-webkit-transform: rotate(360deg);
-	}
+.go-back-btn-container {
+	@apply btn btn-danger m-5 cursor-pointer inline-block;
 }
 
-@keyframes nprogress-spinner {
-	0% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-		transform: rotate(360deg);
-	}
+.blog .blog-details-title strong {
+	@apply text-3xl text-center;
 }
 
-/*
-.card-body {
-	@apply;
+.blog .blog-details-title p {
+	@apply text-gray-500 text-sm text-center;
 }
-
-.card-actions {
-	@apply;
-} */

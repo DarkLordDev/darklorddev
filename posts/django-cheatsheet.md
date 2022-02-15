@@ -1,6 +1,6 @@
 ---
 title: "Django Cheatsheet"
-short_desc: "In this blog you can learn django easily. It is a really great cheatsheet which you should chek out now."
+short_desc: "In this blog you can learn django easily. It is a really great cheatsheet which you should check out now."
 date: "Sat Jun 10 2022"
 ---
 

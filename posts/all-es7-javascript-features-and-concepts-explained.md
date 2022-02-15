@@ -282,4 +282,4 @@ arr.map((eachElementInsideTheArray, indexOfEachElement) => {
 });
 ```
 
-This will be it I refered to [this blog check it out](https://afteracademy.com/blog/most-used-javascript-ecmascript-2015-es6-and-ecmascript-2016-es7-features-75682cd98596). If you want to know more this blog page will be updated.
+This blog is refered to [this blog check it out](https://afteracademy.com/blog/most-used-javascript-ecmascript-2015-es6-and-ecmascript-2016-es7-features-75682cd98596). If you want to know more this blog page will be updated.

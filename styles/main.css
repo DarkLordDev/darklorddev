@@ -113,7 +113,7 @@ footer #footer-left-container #footer-additionaltext {
 }
 
 .card-item {
-	@apply shadow-md bg-gray-50 w-[55vw] flex flex-col even:ml-auto even:items-end p-5 m-5 cursor-pointer;
+	@apply shadow-md bg-gray-50 w-auto flex flex-col md:even:ml-auto md:even:items-end md:w-[55vw] p-2 m-2 md:p-5 md:m-5 cursor-pointer;
 }
 
 .card-item .card-item-date {
@@ -121,7 +121,7 @@ footer #footer-left-container #footer-additionaltext {
 }
 
 .card-item .card-item-title {
-	@apply text-3xl my-2 font-bold;
+	@apply text-2xl my-2 font-bold md:text-3xl;
 }
 
 .card-item .card-item-desc {
@@ -145,7 +145,7 @@ footer #footer-left-container #footer-additionaltext {
 }
 
 .blog {
-	@apply flex justify-center flex-col items-center container mx-auto shadow-md p-10;
+	@apply flex justify-center flex-col items-center container mx-auto shadow-md p-2 sm:p-10;
 }
 
 .go-back-btn-container {
@@ -153,7 +153,7 @@ footer #footer-left-container #footer-additionaltext {
 }
 
 .blog .blog-details-title strong {
-	@apply text-3xl text-center;
+	@apply text-xl text-center sm:text-3xl;
 }
 
 .blog .blog-details-title p {

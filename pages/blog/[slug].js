@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import Link from "next/link";
 import { marked } from "marked";
 
-const PostPage = ({ frontmatter: { title, date }, content }) => {
+const PostPage = ({ frontmatter: { title, date, short_desc }, content }) => {
 	return (
 		<>
 			<div className="go-back-btn-container">

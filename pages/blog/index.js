@@ -33,10 +33,10 @@ const BlogPage = ({ posts }) => {
 			<Head>
 				<title>Blogs | DarkLordDev</title>
 			</Head>
-			<h1 className="container mx-auto text-left text-4xl m-5 font-bold drop-shadow-md">
+			<h1 className="container mx-auto overflow-hidden text-center text-2xl m-3 font-bold drop-shadow-md md:text-left md:text-4xl md:m-5">
 				DarkLordDev Blogs
 			</h1>
-			<div className="blogs-container">
+			<div className="blogs-container overflow-hidden">
 				<div className="cards-container">
 					{posts.map((post, index) => (
 						<BlogItems key={index} post={post} />

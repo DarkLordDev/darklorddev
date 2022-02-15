@@ -16,13 +16,13 @@ export const Navbar = () => {
 			<header className="headbar">
 				<nav style={{ height: !isRes ? "5rem" : "20rem" }} className="navbar">
 					<div id="navbar-title-container">
-						<Link href="/">
+						<a href="/">
 							<img
 								src="/img/global_static/avatar.jpg"
 								className="hidden lg:inline w-[3rem] rounded-full mx-2 cursor-pointer"
 								alt=""
 							/>
-						</Link>
+						</a>
 						<Link href="/">
 							<a id="navbar-title-container-title">DarkLordDev</a>
 						</Link>

@@ -4,16 +4,28 @@ import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
 import { marked } from "marked";
+import { Giscus } from "@giscus/react";
+import Head from "next/head";
 
-const PostPage = ({ frontmatter: { title, date, short_desc }, content }) => {
+const PostPage = ({
+	frontmatter: { title, date, short_desc, source_img },
+	content,
+	slug,
+}) => {
 	return (
 		<>
+			<Head>
+				<title>DarkLordDev | Blog - {slug}</title>
+			</Head>
 			<div className="go-back-btn-container">
 				<Link href="/blog">
 					<a>{"<--"} Go Back</a>
 				</Link>
 			</div>
 			<div className="blog">
+				<div className="blog-img">
+					<img src={source_img} alt="Sorry Couldn't fetch the image" />
+				</div>
 				<div className="blog-details-title">
 					<strong>{title}</strong>
 					<p>posted on {date}</p>
@@ -21,6 +33,24 @@ const PostPage = ({ frontmatter: { title, date, short_desc }, content }) => {
 				<div className="markdown-body container mx-auto">
 					<div dangerouslySetInnerHTML={{ __html: marked(content) }} />
 				</div>
+			</div>
+			<hr className="my-5 bg-black" />
+			<div className="comments container mx-auto my-2 p-3 shadow-md drop-shadow-md">
+				<p className="text-gray-500">
+					Please sign in through github to post a comment
+				</p>
+				<Giscus
+					key={"Comments"}
+					repo="DarkLordDev/darklorddev"
+					repoId="R_kgDOG2MWqA"
+					category="Ideas"
+					categoryId="DIC_kwDOG2MWqM4CBKy0"
+					mapping="title"
+					reactionsEnabled="-"
+					emitMetadata="0"
+					theme="light"
+					inputPosition="bottom"
+				/>
 			</div>
 		</>
 	);

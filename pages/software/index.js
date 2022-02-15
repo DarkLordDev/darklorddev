@@ -7,7 +7,9 @@ const Software = () => {
 			<Head>
 				<title>Softwares | DarkLordDev</title>
 			</Head>
-			<div className="container mx-auto text-center">This is Softwares</div>
+			<div className="container m-auto text-5xl text-center">
+				I have No Softwares yet
+			</div>
 		</>
 	);
 };

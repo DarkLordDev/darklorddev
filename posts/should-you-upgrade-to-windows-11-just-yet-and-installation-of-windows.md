@@ -2,6 +2,7 @@
 title: "Should You Upgrade To Windows 11 Just Yet? + Installation of Windows 11"
 short_desc: "In this blog you can know if you should still upgrade to Windows 11 or just see its installation"
 date: "Sat Jun 16 2022"
+source_img: "/img/post/blog-2-img.jpg"
 ---
 
 Hello folks, recently Microsoft rolled out its new Windows 11 on 5 October. If you don’t know about the features of Windows 11, then you can check out this blog. So, this blog is solely for those who want to upgrade to windows 11 and are confused about whether they should update or not?

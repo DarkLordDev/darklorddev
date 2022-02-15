@@ -2,6 +2,7 @@
 title: "All ES7 Javascript Features and Concepts Explained"
 short_desc: "In this blog you can learn all the features of ES7 javascript"
 date: "Sat Jun 16 2022"
+source_img: "/img/post/aejface.jpg"
 ---
 
 ## what is ES?

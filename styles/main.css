@@ -19,7 +19,7 @@ body {
 }
 
 .navbar #nav-actions button {
-	@apply bg-red-500 py-2 px-4 rounded-md transition-all ring-red-500 text-white font-bold hover:bg-red-700 hover:text-gray-200 focus:ring focus:bg-red-700 focus:text-gray-200;
+	@apply bg-red-500 py-2 px-4 rounded-md transition-all ring-red-300 text-white font-bold hover:bg-red-700 hover:text-gray-200 focus:ring focus:bg-red-700 focus:text-gray-200;
 }
 
 .navbar #navbar-ul {
@@ -83,15 +83,15 @@ footer #footer-left-container #footer-additionaltext {
 }
 
 .btn-danger {
-	@apply bg-red-400 text-white hover:bg-red-700 focus:ring;
+	@apply bg-red-400 text-white hover:bg-red-700 ring-red-300 focus:ring;
 }
 
 .btn-success {
-	@apply bg-green-400 text-white hover:bg-green-700;
+	@apply bg-green-400 text-white hover:bg-green-700 ring-green-300 focus:ring;
 }
 
 .btn-secondary {
-	@apply bg-gray-400 text-white hover:bg-gray-700;
+	@apply bg-gray-400 text-white hover:bg-gray-700 ring-gray-300 focus:ring;
 }
 
 .card {

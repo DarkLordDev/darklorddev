@@ -1,13 +1,36 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { Card } from "../utils/Components";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
-const Home = () => {
-	const router = useRouter();
+export const getStaticProps = async () => {
+	const files = fs.readdirSync(path.join("posts"));
 
-	const demoCheck = (params) => {
-		console.log(params);
+	const posts = files.map((filename) => {
+		const slug = filename.replace(".md", "");
+		const markdownWithMeta = fs.readFileSync(
+			path.join("posts", filename),
+			"utf-8"
+		);
+		const { data: frontmatter } = matter(markdownWithMeta);
+
+		return {
+			slug,
+			frontmatter,
+		};
+	});
+
+	return {
+		props: {
+			posts: posts,
+		},
 	};
+};
+
+const HomePage = ({ posts }) => {
+	const router = useRouter();
 
 	return (
 		<>
@@ -69,43 +92,30 @@ const Home = () => {
 					</div>
 				</div>
 				<h1 className="text-center text-lg font-medium mt-10 sm:text-xl lg:text-2xl">
-					Try Some of the Softwares I use
+					Try Some of the Blogs I made
 				</h1>
 				<div id="popular-softwares">
-					<Card
-						title="Demo Title"
-						imgSrc="https://dummyimage.com/600x400/000/fff"
-						content="This a demo text I guessThis a demo text I guessThis a demo text I guessThis a demo text I guessThis a"
-						btnStuff={{
-							btnVal: "Read More",
-							btnOnClick: () => demoCheck(1),
-							type: "danger",
-						}}
-					/>
-					<Card
-						title="Demo Title"
-						imgSrc="https://dummyimage.com/600x400/000/fff"
-						content="This a demo text I guessThis a demo text I guessThis a demo text I guessThis a demo text I guessThis a"
-						btnStuff={{
-							btnVal: "Read More",
-							btnOnClick: () => demoCheck(1),
-							type: "danger",
-						}}
-					/>
-					<Card
-						title="Demo Title"
-						imgSrc="https://dummyimage.com/600x400/000/fff"
-						content="This a demo text I guessThis a demo text I guessThis a demo text I guessThis a demo text I guessThis a"
-						btnStuff={{
-							btnVal: "Read More",
-							btnOnClick: () => demoCheck(1),
-							type: "danger",
-						}}
-					/>
+					{posts.map((post, i) => (
+						<Card
+							key={i}
+							content={post.frontmatter.short_desc.substring(0, 60) + "..."}
+							title={
+								post.frontmatter.title.length >= 42
+									? post.frontmatter.title.substring(0, 42) + "..."
+									: post.frontmatter.title
+							}
+							imgSrc={post.frontmatter.source_img}
+							btnStuff={{
+								btnOnClick: () => router.push(`/blog/${post.slug}`),
+								btnVal: "Read More",
+								type: "danger",
+							}}
+						/>
+					))}
 				</div>
 			</div>
 		</>
 	);
 };
 
-export default Home;
+export default HomePage;

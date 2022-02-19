@@ -6,6 +6,7 @@ import Link from "next/link";
 import { marked } from "marked";
 import { Giscus } from "@giscus/react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const PostPage = ({
 	frontmatter: { title, date, short_desc, source_img },

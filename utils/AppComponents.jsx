@@ -1,9 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 export const Navbar = () => {
 	const [isRes, setRes] = useState(false);
+	const router = useRouter();
 
 	return (
 		<>
@@ -62,8 +64,8 @@ export const Navbar = () => {
 						</li>
 					</ul>
 					<div id="nav-actions">
-						<button>Sign In</button>
-						<button>Sign Up</button>
+						<button onClick={() => router.push("/signup")}>Sign Up</button>
+						<button onClick={() => router.push("/signin")}>Sign In</button>
 					</div>
 				</nav>
 			</header>

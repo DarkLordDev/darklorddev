@@ -159,3 +159,35 @@ footer #footer-left-container #footer-additionaltext {
 .blog .blog-details-title p {
 	@apply text-gray-500 text-sm text-center;
 }
+
+.form-container {
+	@apply container mx-auto my-[5rem] h-auto justify-center flex shadow-lg flex-col items-center xl:h-[50rem] xl:flex-row;
+}
+
+.form-container .content-container {
+	@apply justify-center flex-col drop-shadow-md items-center flex text-center xl:w-[50%];
+}
+
+.form-container .content-container h1 {
+	@apply text-xl my-5 font-bold md:text-2xl xl:text-3xl;
+}
+
+.form-container .content-container p {
+	@apply text-gray-500 m-2 sm:w-[55%] sm:m-0;
+}
+
+.form-container form {
+	@apply justify-center flex flex-col p-5 w-[auto] drop-shadow-md space-y-5 xl:w-[50%] sm:w-[70%];
+}
+
+.form-container form label {
+	@apply text-base sm:text-xl;
+}
+
+.form-container form input {
+	@apply p-4 rounded-md outline-none border-2 border-b-white transition-all focus:border-b-red-500;
+}
+
+.form-container form .signin-actions-container {
+	@apply space-x-5;
+}

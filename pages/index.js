@@ -4,6 +4,16 @@ import { Card } from "../utils/Components";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import {
+	jumbotron,
+	jumbotronContentContainer,
+	jumbotronHeaderContainer,
+	jumbotronDescContainer,
+	jumbotronDescContainerActions,
+	jumbotronImgContainer,
+	newStartingTitle,
+	popularAchievements,
+} from "../styles/HomePage.module.css";
 
 export const getStaticProps = async () => {
 	const files = fs.readdirSync(path.join("posts"));
@@ -38,20 +48,12 @@ const HomePage = ({ posts }) => {
 				<title>Home | DarkLordDev</title>
 			</Head>
 			<div className="container mx-auto">
-				<div id="jumbotron" className="flex justify-center xl:justify-between">
-					<div
-						id="jumbotron-content-container"
-						className="flex flex-col justify-center text-center sm:w-[50vw] xl:w-[28vw]"
-					>
-						<div id="jumbotron-header-container">
-							<h1 className="text-xl sm1:text-3xl text-red-500">
-								Welcome To DarkLordDev
-							</h1>
+				<div className={jumbotron}>
+					<div className={jumbotronContentContainer}>
+						<div id={jumbotronHeaderContainer}>
+							<h1>Welcome To DarkLordDev</h1>
 						</div>
-						<div
-							id="jumbotron-desc-container"
-							className="text-base text-gray-500"
-						>
+						<div id={jumbotronDescContainer}>
 							<p>
 								Hi, I am DarkLordDev. I know that you might be wondering why
 								name is so ridiculous? Well, I use because its very cool. This
@@ -59,7 +61,7 @@ const HomePage = ({ posts }) => {
 								blogs, softwares I use or I have ever created in my life, or you
 								can just know more about me by pressing the buttons below.
 							</p>
-							<div id="jumbotron-desc-container-actions">
+							<div id={jumbotronDescContainerActions}>
 								<button
 									onClick={() => router.push("/blog")}
 									className="btn btn-danger"
@@ -82,8 +84,7 @@ const HomePage = ({ posts }) => {
 						</div>
 					</div>
 					<div
-						id="jumbotron-img-container"
-						className="hidden xl:block lg:w-1/2 lg:h[20rem]"
+						id={jumbotronImgContainer}
 						style={{
 							clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0% 100%)",
 						}}
@@ -91,10 +92,8 @@ const HomePage = ({ posts }) => {
 						<img src="/img/global_static/jumbotron_bg.jpg" alt="Sorry bro" />
 					</div>
 				</div>
-				<h1 className="text-center text-lg font-medium mt-10 sm:text-xl lg:text-2xl">
-					Try Some of the Blogs I made
-				</h1>
-				<div id="popular-softwares">
+				<h1 className={newStartingTitle}>Try Some of the Blogs I made</h1>
+				<div id={popularAchievements}>
 					{posts.map((post, i) => (
 						<Card
 							key={i}

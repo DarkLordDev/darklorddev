@@ -3,6 +3,10 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { BlogItems } from "../../utils/Components";
+import {
+	blogsContainer,
+	cardsContainer,
+} from "../../styles/BlogPage.module.css";
 
 export const getStaticProps = async () => {
 	const files = fs.readdirSync(path.join("posts"));
@@ -36,8 +40,8 @@ const BlogPage = ({ posts }) => {
 			<h1 className="container mx-auto overflow-hidden text-center text-2xl m-3 font-bold drop-shadow-md md:text-left md:text-4xl md:m-5">
 				DarkLordDev Blogs
 			</h1>
-			<div className="blogs-container overflow-hidden">
-				<div className="cards-container">
+			<div className={blogsContainer}>
+				<div className={cardsContainer}>
 					{posts.map((post, index) => (
 						<BlogItems key={index} post={post} />
 					))}

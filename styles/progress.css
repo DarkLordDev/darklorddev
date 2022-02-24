@@ -1,11 +1,3 @@
-#popular-softwares {
-	@apply flex flex-wrap;
-}
-
-.card-title {
-	@apply text-center;
-}
-
 #nprogress {
 	pointer-events: none;
 }

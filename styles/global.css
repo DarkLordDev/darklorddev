@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+.btn {
+	@apply px-4 py-2 rounded-full shadow-md drop-shadow-md transition-all;
+}
+
+.btn-primary {
+	@apply bg-blue-400 text-white hover:bg-blue-700 focus:ring;
+}
+
+.btn-danger {
+	@apply bg-red-400 text-white hover:bg-red-700 ring-red-300 focus:ring;
+}
+
+.btn-success {
+	@apply bg-green-400 text-white hover:bg-green-700 ring-green-300 focus:ring;
+}
+
+.btn-secondary {
+	@apply bg-gray-400 text-white hover:bg-gray-700 ring-gray-300 focus:ring;
+}
+
 body {
 	@apply w-auto;
 }
@@ -42,13 +62,13 @@ body {
 	@apply inline text-red-500 p-2 rounded-full transition-all float-right lg:hidden;
 }
 
-#jumbotron-desc-container-actions {
+/* #jumbotron-desc-container-actions {
 	@apply my-5 space-x-3;
 }
 
 #jumbotron-desc-container-actions a {
 	@apply cursor-pointer;
-}
+} */
 
 footer {
 	@apply flex items-center p-6 mt-5 mb-[10em] w-auto flex-col justify-center sm:justify-between sm:flex-row;
@@ -72,26 +92,6 @@ footer #footer-left-container #first p {
 
 footer #footer-left-container #footer-additionaltext {
 	@apply text-gray-500;
-}
-
-.btn {
-	@apply px-4 py-2 rounded-full shadow-md drop-shadow-md transition-all;
-}
-
-.btn-primary {
-	@apply bg-blue-400 text-white hover:bg-blue-700 focus:ring;
-}
-
-.btn-danger {
-	@apply bg-red-400 text-white hover:bg-red-700 ring-red-300 focus:ring;
-}
-
-.btn-success {
-	@apply bg-green-400 text-white hover:bg-green-700 ring-green-300 focus:ring;
-}
-
-.btn-secondary {
-	@apply bg-gray-400 text-white hover:bg-gray-700 ring-gray-300 focus:ring;
 }
 
 .card {
@@ -136,26 +136,6 @@ footer #footer-left-container #footer-additionaltext {
 	@apply text-red-500 cursor-pointer;
 }
 
-.card-container {
-	@apply flex flex-col items-start;
-}
-
-.blogs-container {
-	@apply container mx-auto;
-}
-
-.blog {
-	@apply flex justify-center flex-col items-center container mx-auto shadow-md p-2 sm:p-10;
-}
-
-.go-back-btn-container {
-	@apply btn btn-danger m-5 cursor-pointer inline-block;
-}
-
-.blog .blog-details-title strong {
-	@apply text-xl text-center sm:text-3xl;
-}
-
 .blog .blog-details-title p {
 	@apply text-gray-500 text-sm text-center;
 }
@@ -190,4 +170,12 @@ footer #footer-left-container #footer-additionaltext {
 
 .form-container form .signin-actions-container {
 	@apply space-x-5;
+}
+
+.blog {
+	@apply flex justify-center flex-col items-center container mx-auto shadow-md p-2 sm:p-10;
+}
+
+.blog .blog-details-title strong {
+	@apply text-xl text-center sm:text-3xl;
 }

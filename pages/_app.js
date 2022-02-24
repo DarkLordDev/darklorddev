@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Router from "next/router";
 import nProgress from "nprogress";
-import "../styles/main.css";
+import "../styles/global.css";
 import "../styles/progress.css";
 import "../styles/markdown.css";
 import { Footer, Navbar } from "../utils/AppComponents";

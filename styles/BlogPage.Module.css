@@ -1,0 +1,14 @@
+.card-title {
+	@apply text-center;
+}
+
+.blogsContainer {
+	@apply container mx-auto overflow-hidden;
+}
+
+.cardsContainer {
+	@apply flex flex-col items-start;
+}
+
+.mainBlogHeader {
+}

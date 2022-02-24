@@ -6,9 +6,9 @@ import Link from "next/link";
 import { marked } from "marked";
 import { Giscus } from "@giscus/react";
 import Head from "next/head";
-import { useRouter } from "next/router";
+import { goBackBtnContainer } from "../../styles/BlogPostPage.module.css";
 
-const PostPage = ({
+const BlogPostPage = ({
 	frontmatter: { title, date, short_desc, source_img },
 	content,
 	slug,
@@ -16,11 +16,14 @@ const PostPage = ({
 	return (
 		<>
 			<Head>
-				<title>DarkLordDev | Blog - {slug}</title>
+				<title>{title}</title>
 			</Head>
-			<div className="go-back-btn-container">
-				<Link href="/blog">
-					<a>{"<--"} Go Back</a>
+			<div id={goBackBtnContainer} className="btn btn-danger">
+				<Link href="/blog/">
+					<a className="space-x-3 text-sm">
+						<i className="fa-solid fa-arrow-left text-base"></i>
+						<strong>View All Blogs</strong>
+					</a>
 				</Link>
 			</div>
 			<div className="blog">
@@ -89,4 +92,4 @@ export const getStaticProps = ({ params: { slug } }) => {
 	};
 };
 
-export default PostPage;
+export default BlogPostPage;

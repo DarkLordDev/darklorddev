@@ -11,4 +11,5 @@
 }
 
 .mainBlogHeader {
+	@apply container mx-auto h-[4rem] overflow-hidden text-center text-2xl m-3 font-bold drop-shadow-md md:text-left md:text-4xl md:m-5;
 }

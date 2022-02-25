@@ -6,6 +6,7 @@ import { BlogItems } from "../../utils/Components";
 import {
 	blogsContainer,
 	cardsContainer,
+	mainBlogHeader,
 } from "../../styles/BlogPage.module.css";
 
 export const getStaticProps = async () => {
@@ -37,9 +38,7 @@ const BlogPage = ({ posts }) => {
 			<Head>
 				<title>Blogs | DarkLordDev</title>
 			</Head>
-			<h1 className="container mx-auto overflow-hidden text-center text-2xl m-3 font-bold drop-shadow-md md:text-left md:text-4xl md:m-5">
-				DarkLordDev Blogs
-			</h1>
+			<h1 className={mainBlogHeader}>DarkLordDev Blogs</h1>
 			<div className={blogsContainer}>
 				<div className={cardsContainer}>
 					{posts.map((post, index) => (

@@ -1,3 +1,23 @@
 #goBackBtnContainer {
 	@apply m-5 cursor-pointer !inline-block;
 }
+
+#goBackBtnContainer a {
+	@apply space-x-3 text-sm;
+}
+
+.divider {
+	@apply my-5 bg-black;
+}
+
+.comments {
+	@apply container mx-auto my-2 p-3 shadow-md drop-shadow-md;
+}
+
+.blog {
+	@apply flex justify-center flex-col items-center container mx-auto shadow-md p-2 sm:p-10;
+}
+
+.blog .blogDetailsTitle strong {
+	@apply text-xl text-center sm:text-3xl;
+}

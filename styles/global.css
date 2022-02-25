@@ -171,11 +171,3 @@ footer #footer-left-container #footer-additionaltext {
 .form-container form .signin-actions-container {
 	@apply space-x-5;
 }
-
-.blog {
-	@apply flex justify-center flex-col items-center container mx-auto shadow-md p-2 sm:p-10;
-}
-
-.blog .blog-details-title strong {
-	@apply text-xl text-center sm:text-3xl;
-}

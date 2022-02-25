@@ -6,7 +6,13 @@ import Link from "next/link";
 import { marked } from "marked";
 import { Giscus } from "@giscus/react";
 import Head from "next/head";
-import { goBackBtnContainer } from "../../styles/BlogPostPage.module.css";
+import {
+	goBackBtnContainer,
+	divider,
+	blog,
+	blogDetailsTitle,
+	comments,
+} from "../../styles/BlogPostPage.module.css";
 
 const BlogPostPage = ({
 	frontmatter: { title, date, short_desc, source_img },
@@ -20,17 +26,17 @@ const BlogPostPage = ({
 			</Head>
 			<div id={goBackBtnContainer} className="btn btn-danger">
 				<Link href="/blog/">
-					<a className="space-x-3 text-sm">
+					<a>
 						<i className="fa-solid fa-arrow-left text-base"></i>
 						<strong>View All Blogs</strong>
 					</a>
 				</Link>
 			</div>
-			<div className="blog">
+			<div className={blog}>
 				<div className="blog-img">
 					<img src={source_img} alt="Sorry Couldn't fetch the image" />
 				</div>
-				<div className="blog-details-title">
+				<div className={blogDetailsTitle}>
 					<strong>{title}</strong>
 					<p>posted on {date}</p>
 				</div>
@@ -38,8 +44,8 @@ const BlogPostPage = ({
 					<div dangerouslySetInnerHTML={{ __html: marked(content) }} />
 				</div>
 			</div>
-			<hr className="my-5 bg-black" />
-			<div className="comments container mx-auto my-2 p-3 shadow-md drop-shadow-md">
+			<hr className={divider} />
+			<div className={comments}>
 				<p className="text-gray-500">
 					Please sign in through github to post a comment
 				</p>

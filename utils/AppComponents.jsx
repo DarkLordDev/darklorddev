@@ -16,7 +16,7 @@ export const Navbar = () => {
 				/>
 			</Head>
 			<header className="headbar">
-				<nav style={{ height: !isRes ? "5rem" : "20rem" }} className="navbar">
+				<nav style={{ height: !isRes ? "5rem" : "19rem" }} className="navbar">
 					<div id="navbar-title-container">
 						<a href="/">
 							<img
@@ -42,11 +42,11 @@ export const Navbar = () => {
 								<a>Home</a>
 							</Link>
 						</li>
-						<li>
-							<Link href="/software">
-								<a>Softwares</a>
+						{/* <li>
+							<Link href="/downloadables">
+								<a>Grab a Download</a>
 							</Link>
-						</li>
+						</li> */}
 						<li>
 							<Link href="/blog">
 								<a>Blog</a>

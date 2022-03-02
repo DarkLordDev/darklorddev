@@ -68,15 +68,15 @@ const HomePage = ({ posts }) => {
 								>
 									Blog
 								</button>
-								<button
-									onClick={() => router.push("/software")}
+								{/* <button
+									onClick={() => router.push("/downloadables")}
 									className="btn btn-success"
 								>
-									Softwares
-								</button>
+									Grab some of my downloadables
+								</button> */}
 								<button
 									onClick={() => router.push("/about")}
-									className="btn btn-primary"
+									className="btn btn-secondary"
 								>
 									About
 								</button>

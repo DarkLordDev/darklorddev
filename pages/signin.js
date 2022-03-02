@@ -3,13 +3,31 @@ import { useState } from "react";
 
 const signin = () => {
 	const [signInCreds, setSignInCreds] = useState({
-		username: "",
-		email: "",
+		identifier: "",
 		password: "",
 	});
 
 	const handleOnChange = (e) => {
 		setSignInCreds({ ...signInCreds, [e.target.name]: e.target.value });
+	};
+
+	const handleOnSubmit = async (e) => {
+		e.preventDefault();
+		console.log(JSON.stringify(signInCreds));
+		const res = await fetch(
+			"https://darklorddevbackendapi.herokuapp.com/auth/local",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(signInCreds),
+			}
+		);
+		const json = await res.json();
+		if (json !== null || json !== undefined) {
+			localStorage.setItem("jwt", json.jwt);
+		}
 	};
 
 	return (
@@ -25,26 +43,18 @@ const signin = () => {
 						can also unlock many features of this website by signing in
 					</p>
 				</div>
-				<form>
-					<label htmlFor="username">Please Your Username down below</label>
-					<input
-						type="username"
-						name="username"
-						id="username"
-						placeholder="Enter Your E-Mail here"
-						onChange={handleOnChange}
-						value={signInCreds.username}
-						required
-					/>
-					<label htmlFor="email">Please Enter Your E-Mail down below</label>
+				<form onSubmit={handleOnSubmit}>
+					<label htmlFor="identifier">
+						Please Enter Your E-Mail down below
+					</label>
 					<input
 						type="email"
-						name="email"
-						id="email"
+						name="identifier"
+						id="identifier"
 						placeholder="Enter Your E-Mail here"
 						required
 						onChange={handleOnChange}
-						value={signInCreds.email}
+						value={signInCreds.identifier}
 					/>
 					<label htmlFor="password" className="signin-password-title text-xl">
 						Please Enter your password down below
@@ -66,7 +76,7 @@ const signin = () => {
 							onClick={() =>
 								setSignInCreds({
 									username: "",
-									email: "",
+									identifier: "",
 									password: "",
 								})
 							}

@@ -10,7 +10,37 @@ const SignUpPage = () => {
 	});
 
 	const handleOnChange = (e) => {
-		setSignUpCreds({ ...setSignUpCreds, [e.target.name]: e.target.value });
+		setSignUpCreds({ ...signUpCreds, [e.target.name]: e.target.value });
+	};
+
+	const handleOnSubmit = async (e) => {
+		e.preventDefault();
+		const { password, confirmPassword, username } = signUpCreds;
+		if (password !== confirmPassword) {
+			return alert("Sorry passwords did not match");
+		}
+		if (username.trim().length <= 5) {
+			return alert("username must be more than 5 characters");
+		}
+		if (password >= 5) {
+			return alert("username must be more than 5 characters");
+		}
+		const res = await fetch(
+			"https://darklorddevbackendapi.herokuapp.com/auth/local/register",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(signUpCreds),
+			}
+		);
+		setSignUpCreds({
+			username: "",
+			email: "",
+			password: "",
+			confirmPassword: "",
+		});
 	};
 
 	return (
@@ -27,7 +57,7 @@ const SignUpPage = () => {
 						by signing up
 					</p>
 				</div>
-				<form>
+				<form onSubmit={handleOnSubmit}>
 					<label htmlFor="username">Please Enter A Username down below</label>
 					<input
 						type="username"
@@ -44,9 +74,9 @@ const SignUpPage = () => {
 						name="email"
 						id="email"
 						placeholder="Enter Your E-Mail here"
-						required
 						onChange={handleOnChange}
 						value={signUpCreds.email}
+						required
 					/>
 					<label htmlFor="password">
 						Please choose your password and enter it down below
@@ -54,9 +84,10 @@ const SignUpPage = () => {
 					<input
 						type="password"
 						name="password"
+						id="password"
 						value={signUpCreds.password}
 						onChange={handleOnChange}
-						placeholder="Enter the Message which you want to send here"
+						placeholder="Choose a password and enter it here"
 						required
 					/>
 					<label
@@ -66,11 +97,12 @@ const SignUpPage = () => {
 						Please rewrite your password down below
 					</label>
 					<input
-						type="text"
+						type="password"
 						name="confirmPassword"
+						id="confirmPassword"
 						value={signUpCreds.confirmPassword}
 						onChange={handleOnChange}
-						placeholder="Enter the Message which you want to send here"
+						placeholder="Rewrite the password"
 						className="p-4 rounded-md outline-none border-2 border-b-white transition-all focus:border-b-red-500"
 						required
 					/>

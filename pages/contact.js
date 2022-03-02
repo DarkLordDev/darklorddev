@@ -8,6 +8,21 @@ const Contact = () => {
 		setContactCreds({ ...contactCreds, [e.target.name]: e.target.value });
 	};
 
+	const handleOnSubmit = async (e) => {
+		e.preventDefault();
+		const res = await fetch(
+			"https://darklorddevbackendapi.herokuapp.com/contacts",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(contactCreds),
+			}
+		);
+		setContactCreds({ email: "", desc: "" });
+	};
+
 	return (
 		<>
 			<Head>
@@ -24,7 +39,7 @@ const Contact = () => {
 						opinions.
 					</p>
 				</div>
-				<form>
+				<form onSubmit={handleOnSubmit}>
 					<label htmlFor="email">Please Enter Your E-Mail down below</label>
 					<input
 						type="email"

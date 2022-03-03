@@ -1,9 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { Card } from "../utils/Components";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import {
 	jumbotron,
 	jumbotronContentContainer,
@@ -16,25 +13,14 @@ import {
 } from "../styles/HomePage.module.css";
 
 export const getStaticProps = async () => {
-	const files = fs.readdirSync(path.join("posts"));
-
-	const posts = files.map((filename) => {
-		const slug = filename.replace(".md", "");
-		const markdownWithMeta = fs.readFileSync(
-			path.join("posts", filename),
-			"utf-8"
-		);
-		const { data: frontmatter } = matter(markdownWithMeta);
-
-		return {
-			slug,
-			frontmatter,
-		};
+	const res = await fetch("https://darklorddevbackendapi.herokuapp.com/blogs", {
+		method: "GET",
 	});
+	const json = await res.json();
 
 	return {
 		props: {
-			posts: posts,
+			posts: json,
 		},
 	};
 };
@@ -97,13 +83,13 @@ const HomePage = ({ posts }) => {
 					{posts.map((post, i) => (
 						<Card
 							key={i}
-							content={post.frontmatter.short_desc.substring(0, 60) + "..."}
+							content={post.short_desc.substring(0, 60) + "..."}
 							title={
-								post.frontmatter.title.length >= 42
-									? post.frontmatter.title.substring(0, 42) + "..."
-									: post.frontmatter.title
+								post.title.length >= 42
+									? post.title.substring(0, 42) + "..."
+									: post.title
 							}
-							imgSrc={post.frontmatter.source_img}
+							imgSrc={post.source_img}
 							btnStuff={{
 								btnOnClick: () => router.push(`/blog/${post.slug}`),
 								btnVal: "Read More",

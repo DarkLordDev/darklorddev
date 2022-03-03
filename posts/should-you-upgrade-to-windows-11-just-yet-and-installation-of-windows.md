@@ -5,6 +5,12 @@ date: "Sat Jun 16 2022"
 source_img: "/img/post/blog-2-img.jpg"
 ---
 
+# Should You Upgrade To Windows 11 Just Yet? + Installation of Windows 11
+
+In this blog you can know if you should still upgrade to Windows 11 or just see its installation
+
+### Intro
+
 Hello folks, recently Microsoft rolled out its new Windows 11 on 5 October. If you don’t know about the features of Windows 11, then you can check out this blog. So, this blog is solely for those who want to upgrade to windows 11 and are confused about whether they should update or not?
 
 Despite being the latest version of Windows, I don’t think you should upgrade to Windows 11 right now. Windows 11 has been optimized for good productivity and also packs with a Good UI design, but it is too early to migrate. I mean in probably 3-4 months I might upgrade, but not now. Why? Because I personally think there’s not much to explore in windows 11 right now. The most hyped feature, the support for android apps in windows, for which I was excited about the most, got delayed, and also, there are reports coming that the final release has some performance issues. I heard some news where a user said:

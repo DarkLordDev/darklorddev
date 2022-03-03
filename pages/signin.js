@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 
-const signin = () => {
+const SignInPage = () => {
 	const [signInCreds, setSignInCreds] = useState({
 		identifier: "",
 		password: "",
@@ -91,4 +91,4 @@ const signin = () => {
 	);
 };
 
-export default signin;
+export default SignInPage;

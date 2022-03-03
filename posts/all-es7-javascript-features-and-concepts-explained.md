@@ -5,6 +5,10 @@ date: "Sat Jun 16 2022"
 source_img: "/img/post/aejface.jpg"
 ---
 
+# All ES7 Javascript Features and Concepts Explained
+
+In this blog you can learn all the features of ES7 javascript
+
 ## what is ES?
 
 ES stands for ECMAScript. ECMAScript is a JavaScript standard meant to ensure the interoperability of web pages across different web browsers. It is standardized by Ecma International according to the document ECMA-262. ECMAScript is commonly used for client-side scripting on the World Wide Web, and it is increasingly being used for writing server applications and services using Node.js. [Know More](https://www.ecma-international.org/technical-committees/tc39/)

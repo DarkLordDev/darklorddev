@@ -15,9 +15,8 @@ import {
 } from "../../styles/BlogPostPage.module.css";
 
 const BlogPostPage = ({
-	frontmatter: { title, date, short_desc, source_img },
+	frontmatter: { title, posted, short_desc, source_img },
 	content,
-	slug,
 }) => {
 	return (
 		<>
@@ -38,7 +37,7 @@ const BlogPostPage = ({
 				</div>
 				<div className={blogDetailsTitle}>
 					<strong>{title}</strong>
-					<p>posted on {date}</p>
+					<p>posted on {posted}</p>
 				</div>
 				<div className="markdown-body container mx-auto">
 					<div dangerouslySetInnerHTML={{ __html: marked(content) }} />
@@ -67,13 +66,22 @@ const BlogPostPage = ({
 };
 
 export const getStaticPaths = async () => {
-	const files = fs.readdirSync(path.join("posts"));
-
-	const paths = files.map((fileName) => ({
+	const res = await fetch("https://darklorddevbackendapi.herokuapp.com/blogs", {
+		method: "GET",
+	});
+	const json = await res.json();
+	const paths = json.map((blog) => ({
 		params: {
-			slug: fileName.replace(".md", ""),
+			slug: blog.slug,
 		},
 	}));
+	const files = fs.readdirSync(path.join("posts"));
+
+	// const paths = files.map((fileName) => ({
+	// 	params: {
+	// 		slug: fileName.replace(".md", ""),
+	// 	},
+	// }));
 
 	return {
 		paths,
@@ -81,18 +89,25 @@ export const getStaticPaths = async () => {
 	};
 };
 
-export const getStaticProps = ({ params: { slug } }) => {
-	const markdownWithMeta = fs.readFileSync(
-		path.join("posts", slug + ".md"),
-		"utf-8"
+export const getStaticProps = async ({ params: { slug } }) => {
+	console.log(slug);
+	// const markdownWithMeta = fs.readFileSync(
+	// 	path.join("posts", slug + ".md"),
+	// 	"utf-8"
+	// );
+	const res = await fetch(
+		`https://darklorddevbackendapi.herokuapp.com/blogs?slug=${slug}`,
+		{
+			method: "GET",
+		}
 	);
-
-	const { data: frontmatter, content } = matter(markdownWithMeta);
-
+	const json = await res.json();
+	const [...updjson] = json;
+	const { content, ...frontmatter } = updjson[0];
+	// const { data: frontmatter, content } = matter(markdownWithMeta);
 	return {
 		props: {
 			frontmatter,
-			slug,
 			content,
 		},
 	};

@@ -1,7 +1,9 @@
 import Head from "next/head";
-import React from "react";
+import { useRouter } from "next/router";
 
 const AboutPage = () => {
+	const router = useRouter();
+
 	return (
 		<>
 			<Head>
@@ -26,7 +28,12 @@ const AboutPage = () => {
 								I do this. I like to explore, code and read. This website was
 								made so that people know more about me.
 							</p>
-							<button className="btn btn-danger">Contact Me</button>
+							<button
+								className="btn btn-danger"
+								onClick={() => router.push("/contact")}
+							>
+								Contact Me
+							</button>
 						</div>
 					</div>
 				</div>

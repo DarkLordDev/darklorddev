@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import appContext from "./context/AppContext";
 
 export const Navbar = () => {
 	const [isRes, setRes] = useState(false);
@@ -69,6 +70,23 @@ export const Navbar = () => {
 					</div>
 				</nav>
 			</header>
+		</>
+	);
+};
+
+export const Alert = () => {
+	const context = useContext(appContext);
+	const { alertCreds } = context;
+
+	return (
+		<>
+			<div className="h-10">
+				{alertCreds && (
+					<div className={`${alertCreds.type} shadow-md p-3 mb-10`}>
+						<strong id="content">{alertCreds.msg}</strong>
+					</div>
+				)}
+			</div>
 		</>
 	);
 };

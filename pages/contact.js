@@ -1,8 +1,11 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import appContext from "../utils/context/AppContext";
 
 const Contact = () => {
 	const [contactCreds, setContactCreds] = useState({ email: "", desc: "" });
+	const context = useContext(appContext);
+	const { showAlert } = context;
 
 	const handleOnChange = (e) => {
 		setContactCreds({ ...contactCreds, [e.target.name]: e.target.value });
@@ -21,6 +24,10 @@ const Contact = () => {
 			}
 		);
 		setContactCreds({ email: "", desc: "" });
+		showAlert(
+			"Contact has been send successfully. It will take about 36 hours to be administered. Thanks for yout feedback!",
+			"bg-red-400"
+		);
 	};
 
 	return (

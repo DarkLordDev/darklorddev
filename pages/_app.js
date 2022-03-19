@@ -4,7 +4,8 @@ import nProgress from "nprogress";
 import "../styles/global.css";
 import "../styles/progress.css";
 import "../styles/markdown.css";
-import { Footer, Navbar } from "../utils/AppComponents";
+import { Alert, Footer, Navbar } from "../utils/AppComponents";
+import AppState from "../utils/context/AppState";
 
 function MyApp({ Component, pageProps }) {
 	nProgress.configure({
@@ -14,7 +15,7 @@ function MyApp({ Component, pageProps }) {
 	Router.events.on("routeChangeComplete", (url) => nProgress.done());
 
 	return (
-		<>
+		<AppState>
 			<Head>
 				<meta
 					name="description"
@@ -23,9 +24,10 @@ function MyApp({ Component, pageProps }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Navbar />
+			<Alert />
 			<Component {...pageProps} />
 			<Footer />
-		</>
+		</AppState>
 	);
 }
 

@@ -1,8 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useContext, useState } from "react";
-import appContext from "./context/AppContext";
+import { useState, useEffect } from "react";
 
 export const Navbar = () => {
 	const [isRes, setRes] = useState(false);
@@ -65,28 +64,21 @@ export const Navbar = () => {
 						</li>
 					</ul>
 					<div id="nav-actions">
+						{/* {!(jwt !== null) ? (
+							<>
+								<button onClick={() => router.push("/signup")}>Sign Up</button>
+								<button onClick={() => router.push("/signin")}>Sign In</button>
+							</>
+						) : (
+							<button onClick={() => localStorage.removeItem("jwt")}>
+								Sign Out
+							</button>
+						)} */}
 						<button onClick={() => router.push("/signup")}>Sign Up</button>
 						<button onClick={() => router.push("/signin")}>Sign In</button>
 					</div>
 				</nav>
 			</header>
-		</>
-	);
-};
-
-export const Alert = () => {
-	const context = useContext(appContext);
-	const { alertCreds } = context;
-
-	return (
-		<>
-			<div className="h-10">
-				{alertCreds && (
-					<div className={`${alertCreds.type} shadow-md p-3 mb-10`}>
-						<strong id="content">{alertCreds.msg}</strong>
-					</div>
-				)}
-			</div>
 		</>
 	);
 };

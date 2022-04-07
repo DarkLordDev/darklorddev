@@ -37,9 +37,9 @@ export const BlogItems = ({ post }) => {
 			className="card-item"
 			onClick={() => router.push(`/blog/${post.slug}`)}
 		>
-			<div className="card-item-date">{post.frontmatter.data}</div>
-			<div className="card-item-title">{post.frontmatter.title}</div>
-			<div className="card-item-desc">{post.frontmatter.short_desc}</div>
+			<div className="card-item-date">{post.posted}</div>
+			<div className="card-item-title">{post.title}</div>
+			<div className="card-item-desc">{post.short_desc}</div>
 			<div className="card-item-actions">
 				<a href={`/blog/${post.slug}`}>Read More</a>
 			</div>

@@ -4,8 +4,9 @@ import nProgress from "nprogress";
 import "../styles/global.css";
 import "../styles/progress.css";
 import "../styles/markdown.css";
-import { Alert, Footer, Navbar } from "../utils/AppComponents";
-import AppState from "../utils/context/AppState";
+import { Footer, Navbar } from "../utils/AppComponents";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function MyApp({ Component, pageProps }) {
 	nProgress.configure({
@@ -15,7 +16,7 @@ function MyApp({ Component, pageProps }) {
 	Router.events.on("routeChangeComplete", (url) => nProgress.done());
 
 	return (
-		<AppState>
+		<>
 			<Head>
 				<meta
 					name="description"
@@ -24,10 +25,10 @@ function MyApp({ Component, pageProps }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Navbar />
-			<Alert />
+			<ToastContainer />
 			<Component {...pageProps} />
 			<Footer />
-		</AppState>
+		</>
 	);
 }
 

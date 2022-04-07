@@ -12,7 +12,6 @@ import {
 	popularAchievements,
 } from "../styles/HomePage.module.css";
 import { useContext, useEffect } from "react";
-import appContext from "../utils/context/AppContext";
 
 export const getStaticProps = async () => {
 	const res = await fetch("https://darklorddevbackendapi.herokuapp.com/blogs", {
@@ -29,8 +28,6 @@ export const getStaticProps = async () => {
 
 const HomePage = ({ posts }) => {
 	const router = useRouter();
-	const context = useContext(appContext);
-	const { showAlert } = context;
 
 	return (
 		<>

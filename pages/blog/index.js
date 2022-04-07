@@ -1,7 +1,4 @@
 import Head from "next/head";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import { BlogItems } from "../../utils/Components";
 import {
 	blogsContainer,
@@ -10,20 +7,17 @@ import {
 } from "../../styles/BlogPage.module.css";
 
 export const getStaticProps = async () => {
-	const files = fs.readdirSync(path.join("posts"));
-	const posts = files.map((filename) => {
-		const slug = filename.replace(".md", "");
-		const markdownWithMeta = fs.readFileSync(
-			path.join("posts", filename),
-			"utf-8"
-		);
-		const { data: frontmatter } = matter(markdownWithMeta);
-
-		return {
-			slug,
-			frontmatter,
-		};
+	const res = await fetch("https://darklorddevbackendapi.herokuapp.com/blogs", {
+		method: "GET",
 	});
+	const json = await res.json();
+	const posts = json.map((blog) => ({
+		slug: blog.slug,
+		short_desc: blog.slug,
+		posted: blog.posted,
+		source_img: blog.source_img,
+		title: blog.title,
+	}));
 
 	return {
 		props: {

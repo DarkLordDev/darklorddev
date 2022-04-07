@@ -1,7 +1,9 @@
 import Head from "next/head";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const SignInPage = () => {
+	const router = useRouter();
 	const [signInCreds, setSignInCreds] = useState({
 		identifier: "",
 		password: "",
@@ -27,6 +29,7 @@ const SignInPage = () => {
 		const json = await res.json();
 		if (json !== null || json !== undefined) {
 			localStorage.setItem("jwt", json.jwt);
+			router.push("/");
 		}
 	};
 

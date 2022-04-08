@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React from "react";
+import { toast } from "react-toastify";
 
 const SignUpPage = () => {
 	const [signUpCreds, setSignUpCreds] = React.useState({
@@ -17,13 +18,13 @@ const SignUpPage = () => {
 		e.preventDefault();
 		const { password, confirmPassword, username } = signUpCreds;
 		if (password !== confirmPassword) {
-			return alert("Sorry passwords did not match");
+			return toast.error("Sorry passwords did not match");
 		}
 		if (username.trim().length <= 5) {
-			return alert("username must be more than 5 characters");
+			return toast.error("username must be more than 5 characters");
 		}
 		if (password >= 5) {
-			return alert("username must be more than 5 characters");
+			return toast.error("username must be more than 5 characters");
 		}
 		const res = await fetch(
 			"https://darklorddevbackendapi.herokuapp.com/auth/local/register",

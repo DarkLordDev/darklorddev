@@ -5,7 +5,17 @@ import { useState, useEffect } from "react";
 
 export const Navbar = () => {
 	const [isRes, setRes] = useState(false);
+	const [jwt, setJwt] = useState("");
 	const router = useRouter();
+	useEffect(() => {
+		setJwt(localStorage.getItem("jwt"));
+	}, []);
+
+	const handleSignOut = () => {
+		localStorage.removeItem("jwt");
+		router.push("/");
+		location.reload();
+	};
 
 	return (
 		<>
@@ -42,11 +52,6 @@ export const Navbar = () => {
 								<a>Home</a>
 							</Link>
 						</li>
-						{/* <li>
-							<Link href="/downloadables">
-								<a>Grab a Download</a>
-							</Link>
-						</li> */}
 						<li>
 							<Link href="/blog">
 								<a>Blog</a>
@@ -64,18 +69,16 @@ export const Navbar = () => {
 						</li>
 					</ul>
 					<div id="nav-actions">
-						{/* {!(jwt !== null) ? (
+						{!(jwt !== null) ? (
 							<>
 								<button onClick={() => router.push("/signup")}>Sign Up</button>
 								<button onClick={() => router.push("/signin")}>Sign In</button>
 							</>
 						) : (
-							<button onClick={() => localStorage.removeItem("jwt")}>
-								Sign Out
-							</button>
-						)} */}
-						<button onClick={() => router.push("/signup")}>Sign Up</button>
-						<button onClick={() => router.push("/signin")}>Sign In</button>
+							<button onClick={handleSignOut}>Sign Out</button>
+						)}
+						{/* <button onClick={() => router.push("/signup")}>Sign Up</button> */}
+						{/* <button onClick={() => router.push("/signin")}>Sign In</button> */}
 					</div>
 				</nav>
 			</header>

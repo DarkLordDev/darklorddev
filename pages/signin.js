@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 const SignInPage = () => {
 	const router = useRouter();
@@ -29,7 +30,10 @@ const SignInPage = () => {
 		const json = await res.json();
 		if (json !== null || json !== undefined) {
 			localStorage.setItem("jwt", json.jwt);
-			router.push("/");
+			location.pathname = "/";
+			toast.success("Successfully Signed In");
+		} else {
+			toast.error("Sorry! error ocurred");
 		}
 	};
 

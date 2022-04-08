@@ -16,7 +16,6 @@ const SignInPage = () => {
 
 	const handleOnSubmit = async (e) => {
 		e.preventDefault();
-		console.log(JSON.stringify(signInCreds));
 		const res = await fetch(
 			"https://darklorddevbackendapi.herokuapp.com/auth/local",
 			{

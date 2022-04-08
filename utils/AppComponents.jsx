@@ -26,7 +26,7 @@ export const Navbar = () => {
 				/>
 			</Head>
 			<header className="headbar">
-				<nav style={{ height: !isRes ? "5rem" : "19rem" }} className="navbar">
+				<nav style={{ height: !isRes ? "5rem" : "23rem" }} className="navbar">
 					<div id="navbar-title-container">
 						<a href="/">
 							<img
@@ -58,6 +58,11 @@ export const Navbar = () => {
 							</Link>
 						</li>
 						<li>
+							<Link href="/shop">
+								<a>Shop</a>
+							</Link>
+						</li>
+						<li>
 							<Link href="/contact">
 								<a href="/">Contact</a>
 							</Link>
@@ -69,6 +74,9 @@ export const Navbar = () => {
 						</li>
 					</ul>
 					<div id="nav-actions">
+						<button id="cart">
+							<i class="fa-duotone fa-cart-shopping"></i>
+						</button>
 						{!(jwt !== null) ? (
 							<>
 								<button onClick={() => router.push("/signup")}>Sign Up</button>
@@ -77,8 +85,6 @@ export const Navbar = () => {
 						) : (
 							<button onClick={handleSignOut}>Sign Out</button>
 						)}
-						{/* <button onClick={() => router.push("/signup")}>Sign Up</button> */}
-						{/* <button onClick={() => router.push("/signin")}>Sign In</button> */}
 					</div>
 				</nav>
 			</header>

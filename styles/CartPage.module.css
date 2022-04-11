@@ -1,0 +1,47 @@
+.cartContainer {
+	@apply text-gray-600 overflow-hidden;
+}
+
+.mainContainer {
+	@apply container px-5 py-24 mx-auto;
+}
+
+.cartItems {
+	@apply -my-8 divide-y-2 divide-gray-100;
+}
+
+.cartItemContainer {
+	@apply py-8 flex flex-wrap flex-col md:flex-nowrap md:flex-row;
+}
+
+.cartItemHeaderContainer {
+	@apply md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col;
+}
+
+.cartItemHeaderContainer strong {
+	@apply font-semibold text-gray-700;
+}
+
+.cartItemHeaderContainer span {
+	@apply text-sm text-gray-500;
+}
+
+.activeContainer {
+	@apply flex flex-col items-center md:flex-grow md:items-start;
+}
+
+.activeContainer h1 {
+	@apply text-2xl font-medium text-gray-900 mb-2;
+}
+
+.activeContainer p {
+	@apply leading-relaxed text-lg;
+}
+
+.activeContainer a {
+	@apply text-red-500 inline-flex items-center m-4;
+}
+
+.extraContainer {
+	@apply flex justify-center space-x-4;
+}

@@ -4,7 +4,7 @@ import nProgress from "nprogress";
 import "../styles/global.css";
 import "../styles/progress.css";
 import "../styles/markdown.css";
-import { Footer, Navbar } from "../utils/AppComponents";
+import { Cart, Footer, Navbar } from "../utils/AppComponents";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

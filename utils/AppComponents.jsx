@@ -74,8 +74,8 @@ export const Navbar = () => {
 						</li>
 					</ul>
 					<div id="nav-actions">
-						<button id="cart">
-							<i class="fa-duotone fa-cart-shopping"></i>
+						<button id="cart" onClick={() => router.push("/cart")}>
+							<i className="fa-duotone fa-cart-shopping"></i>
 						</button>
 						{!(jwt !== null) ? (
 							<>

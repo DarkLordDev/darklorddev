@@ -23,7 +23,7 @@ const ShopPage = ({ products }) => {
 	return (
 		<>
 			<Head>
-				<title>DarkLordDev | Shop</title>
+				<title>Shop | DarkLordDev</title>
 			</Head>
 			<section className="text-gray-600 body-font">
 				<div className="container px-5 py-24 mx-auto">

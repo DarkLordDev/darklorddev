@@ -14,7 +14,7 @@ const CartPage = () => {
 	return (
 		<>
 			<Head>
-				<title>DarkLordDev | Your Cart</title>
+				<title>Your Cart | DarkLordDev</title>
 			</Head>
 			<section className={cartContainer}>
 				<div className={mainContainer}>

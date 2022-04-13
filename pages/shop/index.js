@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import React from "react";
 
 export const getStaticProps = async () => {
@@ -41,6 +42,8 @@ export const getStaticProps = async () => {
 };
 
 const ShopPage = ({ products }) => {
+	const router = useRouter();
+
 	return (
 		<>
 			<Head>
@@ -49,44 +52,75 @@ const ShopPage = ({ products }) => {
 			<section className="text-gray-600 body-font">
 				<div className="container px-5 py-24 mx-auto">
 					<div className="flex flex-wrap -m-4">
-						<div className="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg">
-							<a className="block relative h-48 rounded overflow-hidden">
-								<img
-									alt="ecommerce"
-									className="object-cover object-center w-full h-full block"
-									src={`https://dummyimage.com/720x400`}
-								/>
-							</a>
-							<div className="mt-4">
-								<h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-									category
-								</h3>
-								<h2 className="text-gray-900 title-font text-lg font-medium">
-									title
-								</h2>
-								<p className="mt-1">price</p>
-							</div>
-							<div className="prodActions flex pt-2 mt-5 space-x-2">
-								<button className="btn btn-danger">View Item</button>
-								<div className="rightProdActions flex w-[50%] space-x-2 justify-end items-center">
-									<button className="text-yellow-300 text-xl">
-										<i className="fa-solid fa-circle" />
-									</button>
-									<button className="text-orange-300 text-xl">
-										<i className="fa-solid fa-circle" />
-									</button>
-									<button className="text-red-400 text-xl">
-										<i className="fa-solid fa-circle" />
-									</button>
-									<button className="text-pink-400 text-xl">
-										<i className="fa-solid fa-circle" />
-									</button>
-									<button className="text-purple-400 text-xl">
-										<i className="fa-solid fa-circle" />
+						{Object.keys(products).map((product, i) => (
+							<div key={i} className="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg">
+								<a className="block relative h-48 rounded overflow-hidden">
+									<img
+										alt="ecommerce"
+										className="object-cover object-center w-full h-full block"
+										src={`https://dummyimage.com/720x400`}
+									/>
+								</a>
+								<div className="mt-4">
+									<h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+										will be shipped Tomorrow
+									</h3>
+									<h2 className="text-gray-900 title-font text-lg font-medium">
+										{products[product].title}
+									</h2>
+									<p className="mt-1">{products[product].price}</p>
+									<p className="mt-1 space-x-2">
+										{products[product].size.includes("XS") && <span>XS</span>}
+										{products[product].size.includes("MD") && <span>MD</span>}
+										{products[product].size.includes("LG") && <span>LG</span>}
+										{products[product].size.includes("XL") && <span>XL</span>}
+										{products[product].size.includes("2XL") && <span>2XL</span>}
+									</p>
+									<div className="mt-1 space-x-2">
+										{products[product].color.includes("red") && (
+											<span className="text-red-400 text-xl">
+												<i className="fa-solid fa-circle" />
+											</span>
+										)}
+										{products[product].color.includes("yellow") && (
+											<span className="text-yellow-300 text-xl">
+												<i className="fa-solid fa-circle" />
+											</span>
+										)}
+										{products[product].color.includes("orange") && (
+											<span className="text-orange-300 text-xl">
+												<i className="fa-solid fa-circle" />
+											</span>
+										)}
+										{products[product].color.includes("purple") && (
+											<span className="text-purple-400 text-xl">
+												<i className="fa-solid fa-circle" />
+											</span>
+										)}
+										{products[product].color.includes("pink") && (
+											<span className="text-pink-400 text-xl">
+												<i className="fa-solid fa-circle" />
+											</span>
+										)}
+										{products[product].color.includes("green") && (
+											<span className="text-green-400 text-xl">
+												<i className="fa-solid fa-circle" />
+											</span>
+										)}
+									</div>
+								</div>
+								<div className="prodActions flex my-2 items-center">
+									<button
+										onClick={() =>
+											router.push(`/shop/${products[product].slug}`)
+										}
+										className="btn btn-danger"
+									>
+										Buy at ${products[product].price}
 									</button>
 								</div>
 							</div>
-						</div>
+						))}
 					</div>
 				</div>
 			</section>

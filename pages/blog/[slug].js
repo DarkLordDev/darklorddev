@@ -1,7 +1,4 @@
 import React from "react";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import Link from "next/link";
 import { marked } from "marked";
 import { Giscus } from "@giscus/react";
@@ -13,6 +10,53 @@ import {
 	blogDetailsTitle,
 	comments,
 } from "../../styles/BlogPostPage.module.css";
+
+export const getStaticPaths = async () => {
+	const res = await fetch("https://darklorddevbackendapi.herokuapp.com/blogs", {
+		method: "GET",
+	});
+	const json = await res.json();
+	const paths = json.map((blog) => ({
+		params: {
+			slug: blog.slug,
+		},
+	}));
+
+	// const paths = files.map((fileName) => ({
+	// 	params: {
+	// 		slug: fileName.replace(".md", ""),
+	// 	},
+	// }));
+
+	return {
+		paths,
+		fallback: false,
+	};
+};
+
+export const getStaticProps = async ({ params: { slug } }) => {
+	console.log(slug);
+	// const markdownWithMeta = fs.readFileSync(
+	// 	path.join("posts", slug + ".md"),
+	// 	"utf-8"
+	// );
+	const res = await fetch(
+		`https://darklorddevbackendapi.herokuapp.com/blogs?slug=${slug}`,
+		{
+			method: "GET",
+		}
+	);
+	const json = await res.json();
+	const [...updjson] = json;
+	const { content, ...frontmatter } = updjson[0];
+	// const { data: frontmatter, content } = matter(markdownWithMeta);
+	return {
+		props: {
+			frontmatter,
+			content,
+		},
+	};
+};
 
 const BlogPostPage = ({
 	frontmatter: { title, posted, short_desc, source_img },
@@ -63,54 +107,6 @@ const BlogPostPage = ({
 			</div>
 		</>
 	);
-};
-
-export const getStaticPaths = async () => {
-	const res = await fetch("https://darklorddevbackendapi.herokuapp.com/blogs", {
-		method: "GET",
-	});
-	const json = await res.json();
-	const paths = json.map((blog) => ({
-		params: {
-			slug: blog.slug,
-		},
-	}));
-	const files = fs.readdirSync(path.join("posts"));
-
-	// const paths = files.map((fileName) => ({
-	// 	params: {
-	// 		slug: fileName.replace(".md", ""),
-	// 	},
-	// }));
-
-	return {
-		paths,
-		fallback: false,
-	};
-};
-
-export const getStaticProps = async ({ params: { slug } }) => {
-	console.log(slug);
-	// const markdownWithMeta = fs.readFileSync(
-	// 	path.join("posts", slug + ".md"),
-	// 	"utf-8"
-	// );
-	const res = await fetch(
-		`https://darklorddevbackendapi.herokuapp.com/blogs?slug=${slug}`,
-		{
-			method: "GET",
-		}
-	);
-	const json = await res.json();
-	const [...updjson] = json;
-	const { content, ...frontmatter } = updjson[0];
-	// const { data: frontmatter, content } = matter(markdownWithMeta);
-	return {
-		props: {
-			frontmatter,
-			content,
-		},
-	};
 };
 
 export default BlogPostPage;

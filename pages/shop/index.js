@@ -68,7 +68,7 @@ const ShopPage = ({ products }) => {
 									<h2 className="text-gray-900 title-font text-lg font-medium">
 										{products[product].title}
 									</h2>
-									<p className="mt-1">{products[product].price}</p>
+									<p className="mt-1">${products[product].price}</p>
 									<p className="mt-1 space-x-2">
 										{products[product].size.includes("XS") && <span>XS</span>}
 										{products[product].size.includes("MD") && <span>MD</span>}
@@ -116,7 +116,7 @@ const ShopPage = ({ products }) => {
 										}
 										className="btn btn-danger"
 									>
-										Buy at ${products[product].price}
+										View Item
 									</button>
 								</div>
 							</div>

@@ -58,7 +58,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
 	};
 };
 
-const ShopItemPage = ({ product, variants }) => {
+const ShopItemPage = ({ product, variants, addCart }) => {
 	const [size, setSize] = React.useState(product.size);
 	const [color, setColor] = React.useState(product.color);
 	const handleChangeVariant = (newColor, newSize) => {
@@ -107,17 +107,17 @@ const ShopItemPage = ({ product, variants }) => {
 								cardigan.
 							</p>
 							<div id="shopItemDetails" className="my-2">
-								<div class="flex border-t border-gray-200 py-2">
-									<span class="text-gray-500">Color</span>
-									<span class="ml-auto text-gray-900">{color}</span>
+								<div className="flex border-t border-gray-200 py-2">
+									<span className="text-gray-500">Color</span>
+									<span className="ml-auto text-gray-900">{color}</span>
 								</div>
-								<div class="flex border-t border-gray-200 py-2">
-									<span class="text-gray-500">Size</span>
-									<span class="ml-auto text-gray-900">{size}</span>
+								<div className="flex border-t border-gray-200 py-2">
+									<span className="text-gray-500">Size</span>
+									<span className="ml-auto text-gray-900">{size}</span>
 								</div>
-								<div class="flex border-t border-b mb-6 border-gray-200 py-2">
-									<span class="text-gray-500">Quantity</span>
-									<span class="ml-auto text-gray-900">
+								<div className="flex border-t border-b mb-6 border-gray-200 py-2">
+									<span className="text-gray-500">Quantity</span>
+									<span className="ml-auto text-gray-900">
 										{product.availableqty} units
 									</span>
 								</div>
@@ -223,7 +223,19 @@ const ShopItemPage = ({ product, variants }) => {
 								<span className="title-font font-medium text-2xl text-gray-900">
 									${product.price}
 								</span>
-								<button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+								<button
+									onClick={() =>
+										addCart(
+											product.slug,
+											product.availableqty,
+											product.price,
+											product.title,
+											product.size,
+											product.color
+										)
+									}
+									className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+								>
 									Add To Cart
 								</button>
 							</div>
